@@ -3,7 +3,7 @@
 
 Error message is awk: illegal field $(), name "nuc". 
 we need to use define the bash variable for: awk -v var=$nuc '/^#/{next} {if ($4 == var) {print $5}}' $1 | sort | uniq -c
-
+awk needs variables defined within awk (its a specific language)
 Considering  A
  354 C
 1315 G
@@ -42,7 +42,7 @@ Considering  T
  7 G
  15 T
  
- Answer to 2: the most common alternate allele is cytosine for variants occurring in promoter regions.
+ Answer to 2: the most common alternate allele for cytosine sis thymine for variants occurring in promoter regions.
  
  3. It is often of interest for biologists to find the closest gene to some variant or set of variants which are identified in a screen or as a significant GWAS hit. Debug the script that uses bedtools closest to find the closest gene for each variant.
  
