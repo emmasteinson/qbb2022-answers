@@ -6,7 +6,7 @@ Create a copy of the script we produced during the live-coding lecture, /Users/c
     Check that the number of fields is appropriate. Your script should allow for files with bed3, bed4, bed5, bed6, bed7, bed8, bed9, and bed12 formatting, but not lines that follow bed10 and bed11 formatting as these entries are prohibited
 
 #!/usr/bin/env python3
-
+```
 import sys
 
 def parse_bed(fname):
@@ -36,3 +36,4 @@ def parse_bed(fname):
 if __name__ == "__main__":
     fname = sys.argv[1]
     bed = parse_bed(fname)
+```
