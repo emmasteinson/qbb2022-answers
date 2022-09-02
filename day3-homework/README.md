@@ -10,3 +10,4 @@ Answer: there appears to be a few main clusters-maybe there is a correlation bet
 3. 
 join <(sort plink.eigenvec) <(sort integrated_call_samples.panel) > joined_file.txt #makes joined file from terminal with pca values and pop, superpop, gender
 
+#non african populations seperating from african. african american have mixed ancestry with european which is why you see that stratification 

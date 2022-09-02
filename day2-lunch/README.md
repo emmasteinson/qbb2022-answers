@@ -5,8 +5,9 @@ Create a copy of the script we produced during the live-coding lecture, /Users/c
 
     Check that the number of fields is appropriate. Your script should allow for files with bed3, bed4, bed5, bed6, bed7, bed8, bed9, and bed12 formatting, but not lines that follow bed10 and bed11 formatting as these entries are prohibited
 
-#!/usr/bin/env python3
 ```
+
+#!/usr/bin/env python3
 import sys
 
 def parse_bed(fname):
@@ -14,13 +15,13 @@ def parse_bed(fname):
         fs = open(fname, 'r')
     except:
         raise FileNotFoundError("That file doesn’t appear to exist")
-    bed = []
-    field_types = [str, int, int, str, float, str, int, int, str, int, str, str] #set field types
-    for i, line in enumerate(fs):
+    bed = [] #create empty list called bed
+    field_types = [str, int, int, str, float, str, int, int, str, int, str, str] #set field types for each column in file
+    for i, line in enumerate(fs): #
         if line.startswith("#"):
             continue
-        fields = line.rstrip().split()
-        fieldN = len(fields)
+        fields = line.rstrip().split() #set fields as a list remove space at end of lines and turn into list deliminated by spaces
+        fieldN = len(fields) #set fieldN as number of fields (columns)
         if fieldN < 3 or fieldN ==10 or fieldN ==11: #set error to appear if field number is 3 10, or 11
             print(f"Line {i} appears malformed", file=sys.stderr)
             continue
