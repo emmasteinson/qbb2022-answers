@@ -46,25 +46,34 @@ Considering  T
  
  3. It is often of interest for biologists to find the closest gene to some variant or set of variants which are identified in a screen or as a significant GWAS hit. Debug the script that uses bedtools closest to find the closest gene for each variant.
  
- awk '/^#/{next} {print $1,$2-1, $2}' $1 > variants.bed #this is trying to create new file from random_snippet.vcf by printing  the first colum, print the second column but subtract 1 from the value, and then print the second column to new file (creating a bedfile with this info)
+ awk '/^#/{next} {print $1,$2-1, $2}' $1 > variants.bed 
  
- sort -k1,1 -k2,2n ~/data/bed_files/genes.bed > genes.sorted.bed #sort based on column 1 and then sort based on column 2 numberically (puts in order along chromosome)
+ #this is trying to create new file from random_snippet.vcf by printing  the first colum, print the second column but subtract 1 from the value, and then print the second column to new file (creating a bedfile with this info)
  
- bedtools closest -a variants.bed -b genes.sorted.bed #searches for ovelapping features in variants.bed and genes.sorted.bed In the event that no feature in B overlaps the current feature in A, closest will report the nearest (that is, least genomic distance from the start or end of A) feature in B.
+ sort -k1,1 -k2,2n ~/data/bed_files/genes.bed > genes.sorted.bed 
+ 
+ #sort based on column 1 and then sort based on column 2 numberically (puts in order along chromosome)
+ 
+ bedtools closest -a variants.bed -b genes.sorted.bed 
+ 
+ #searches for ovelapping features in variants.bed and genes.sorted.bed In the event that no feature in B overlaps the current feature in A, closest will report the nearest (that is, least genomic distance from the start or end of A) feature in B.
  
  -errors: 
  Error 1: we need to make sure file is tab deliminated fix by adding "\t"
  Error 2: Sorted input specified, but the file variants.bed has the following out of order record-to fix this we need to sort the variants.bed file, so we need to pipe sort to the awk command 
  
- #new script: 
+new script: 
 awk '/^#/{next} {print $1 "\t" $2-1 "\t" $2}' $1 | sort -k1,1 -k2,2n > variants.bed
 sort -k1,1 -k2,2n ~/data/bed_files/genes.bed > genes.sorted.bed
 bedtools closest -a variants.bed -b genes.sorted.bed
  
- (base) [~/qbb2022-answers/day1-homework $]bash exercise3.sh ~/data/vcf_files/random_snippet.vcf |  wc -l
-    10293 #number of variants-this command  counts number of lines
- (base) [~/qbb2022-answers/day1-homework $]bash exercise3.sh ~/data/vcf_files/random_snippet.vcf |  sort -k 7 | uniq -f 6 -c | wc -l
-      200 #number of genes-this command sorts by the 7th column (gene) then uniq -f 6 (ignore first 6 fields) -c gives us gene name and number of timees it occurred. wc -l gives count of # of gnenes
-	  How many variants on average connected with a gene?
-	  10293/200 = 51.5 on average
+bash exercise3.sh ~/data/vcf_files/random_snippet.vcf |  wc -l
+    10293 
+	#number of variants-this command  counts number of lines
+ 
+bash exercise3.sh ~/data/vcf_files/random_snippet.vcf |  sort -k 7 | uniq -f 6 -c | wc -l
+	  200
+ #number of genes-this command sorts by the 7th column (gene) then uniq -f 6 (ignore first 6 fields) -c gives us gene name and number of timees it occurred. wc -l gives count of # of gnenes
+How many variants on average connected with a gene?
+10293/200 = 51.5 on average
  
