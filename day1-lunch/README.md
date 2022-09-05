@@ -45,8 +45,38 @@ b.(base) [~/qbb2022-answers/day1-lunch $]sort -k 4 -g chromHMM.E116_15_coreMarks
 c. cut superpop aand pop fields and sort those. then count nubmer of unique instances. 
 
 5.
-b. cut -f1-9,13 random_snippet.vcf > HG00100.vcf #want lines 1-9 and 13 write to new file
-c. 
+b. Create a HG00100.vcffile (remove HG00096-99, HG00101-NA21144)
+
+cut -f1-9,13 random_snippet.vcf > HG00100.vcf 
+
+c. How many 0|0, 0|1, 1|0, and 1|1 values are present for HG00100
+
+cut -f 10 HG00100.vcf > f10.txt #cut out 10th column with desired info
+sort -n f10.txt | uniq -c #sort and count number of each genotype
+
+9514 0|0
+ 127 0|1
+ 178 1|0
+ 181 1|1
+
+
+d. How many rows contain AF=1?
+
+cut -f 8 HG00100.vcf > f8.txt
+sed '/^#/d' f8.txt | grep AF=1 | wc -l #delete header rows find number of times AF=1 and count
+
+34 rows contain AF =1
+
+e. How many times can AF=1 appear per row?
+
+AF=1 can appear 6 times per row (it can appear in field 4-9 of the INFO field as AF=1, EAS_AF=1, EUR_AF=1, AFR_AF=1, AMR_AF=1, SAS_AF=1)
+
+
+f. Describe briefly how you would extract the AFR values.
+
+I would remove headers and cut for field 8. Then I would want to extract all value where AFR_AF= either using grep or cut. 
+
+
 
   
   
