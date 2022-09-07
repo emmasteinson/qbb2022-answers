@@ -1,0 +1,3 @@
+# Feedback day2-homework
+
+This is a good start. Your comments suggest that you understand what each block of code in the VCF parser is doing and why. The next step is to use the parser to import the 2 VCF files, create a dictionary of position-ID pairs from the dbSNP file and look up the position for each entry in the random VCF file to see if it has an ID to fill in that field in the entry. If you are not feeling comfortable with dictionaries, please reach out to one of the instructors or TAs. Any one of us would be happy to help go over this with you. You're doing well. Keep it up!
