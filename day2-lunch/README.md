@@ -17,7 +17,7 @@ def parse_bed(fname):
         raise FileNotFoundError("That file doesn’t appear to exist")
     bed = [] #create empty list called bed
     field_types = [str, int, int, str, float, str, int, int, str, int, str, str] #set field types for each column in file
-    for i, line in enumerate(fs): #
+    for i, line in enumerate(fs): 
         if line.startswith("#"):
             continue
         fields = line.rstrip().split() #set fields as a list remove space at end of lines and turn into list deliminated by spaces
