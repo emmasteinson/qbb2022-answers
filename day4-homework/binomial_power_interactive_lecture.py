@@ -102,7 +102,7 @@ power2b = run_experiment() #**
 
 fig, ax = plt.subplots()
 sns.color_palette("rocket", as_cmap=True)
-sns.heatmap(power2b, vmin=0, vmax=1, xticklabels='auto', yticklabels='auto' ax=None,)
+sns.heatmap(power2b, vmin=0, vmax=1, xticklabels='auto', yticklabels='auto', ax=None,)
 ax.set_xlabel("n_tosses")
 ax.set_ylabel("prob_heads")
 ax.set_title("Heatmap to Visualize Power with Corrected p-values")
