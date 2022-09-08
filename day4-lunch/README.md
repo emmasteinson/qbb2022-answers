@@ -35,14 +35,14 @@ The trends in these plots made sense as most alternate alleles occur at low freq
 Exercise 3 
 ```
 SYNOPSIS: Takes information about genetic location from bed file and applies it to a vcf file. This allows for aligning SNPs with where they are in the genome and gene_type they reside in. Gives information about how many base pairs each gene-type covers in genome and creates histogram using python script with this information to visualize whether some gene_types contain more alternate alleles at higher frequencies than others.
-```
-```
+
+
 USAGE: bash do_all.sh <VCF> <GTF>
 Dependencies: bash, bedtools, matplotlib, python3, bcftools
 Description: 
 1. checks that vcf and gtf input from command line can be found
 2. then calls subset_regions.sh which subsets the .gtf file by pulling out the feature of interest 
-```
+
 Description:
 
 1. Create .bed files for features of interst 
@@ -52,8 +52,8 @@ Description:
 5.uses this to calculate and give output of how many bp's each gene_type covers
 6.do_all.sh then feeds this info python script that creates a histogram out of this information 
 
-```
-```
+
+
 output example for "processed psuedogenes" gene_type:
 
 processed_pseudogene.chr21.bed #contains chr1 start stop
