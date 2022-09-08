@@ -36,6 +36,7 @@ Exercise 3
 ```
 SYNOPSIS: Takes information about genetic location from bed file and applies it to a vcf file. This allows for aligning SNPs with where they are in the genome and gene_type they reside in. Gives information about how many base pairs each gene-type covers in genome and creates histogram using python script with this information to visualize whether some gene_types contain more alternate alleles at higher frequencies than others.
 ```
+```
 USAGE: bash do_all.sh <VCF> <GTF>
 Dependencies: bash, bedtools, matplotlib, python3, bcftools
 Description: 
