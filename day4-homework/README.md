@@ -8,7 +8,7 @@ this line is setting the range of the probabilities of the unfair coin to return
 
 Part C
 
-The heatmap demonstrates that power is higher the more tosses you do and the more and the more the probability of getting heads deviates from .5. This makes sense as you are more likely to be able to capture deviations from binomial expectations the more times you preform the experiment and the more "rigged" it is. 
+The heatmap demonstrates that power is higher the more tosses you do and the more and the more the probability of getting heads deviates from .5. This makes sense as you are more likely to be able to capture deviations from binomial expectations the more times you preform the experiment and the more "rigged" it is. ***my heat map x and y labels aren't right I am struggling to fix
  
 Part D
 
