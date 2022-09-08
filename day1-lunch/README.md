@@ -17,6 +17,7 @@ b.
 (base) [~/qbb2022-answers/day1-lunch $]sort -k 4 -g chromHMM.E116_15_coreMarks_hg38lift_stateno.chr21.bed | uniq -f 3 -c
  #sorted by the fourth column numerically and then found number of unique terms skip the first 3 columns and count (sort because uniq needs it to be in order (can also cut out fourth column and then sort and count)
 ```
+```
  305 chr21	13979679	13980279	1
  678 chr21	14086279	14087079	2
   79 chr21	14520479	14521079	3
@@ -32,7 +33,7 @@ b.
   62 chr21	17514282	17514482	13
  228 chr21	14215479	14215679	14
  992 chr21	10003860	10005054	15
- 
+ ```
  c. we would find the toal number of nuelcotides using the start and end positions for each state and nubmer of times it occurs. Then we would find the number of nucleotides in each state and then divide by total number of nucleotides to find the state that encompasses the largest fraction. 
  
  4.
