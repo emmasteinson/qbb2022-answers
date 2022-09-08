@@ -33,16 +33,17 @@ Exercise 2
 The trends in these plots made sense as most alternate alleles occur at low frequencies. There is a shift in psuedogenes which makes sense becase there would be more alternate alleles in psuedogenes as there isn't as strong selections against them because they are not coding. 
 
 Exercise 3 
-
+```
 SYNOPSIS: Takes information about genetic location from bed file and applies it to a vcf file. This allows for aligning SNPs with where they are in the genome and gene_type they reside in. Gives information about how many base pairs each gene-type covers in genome and creates histogram using python script with this information to visualize whether some gene_types contain more alternate alleles at higher frequencies than others.
-
+```
 USAGE: bash do_all.sh <VCF> <GTF>
 Dependencies: bash, bedtools, matplotlib, python3, bcftools
 Description: 
 1. checks that vcf and gtf input from command line can be found
 2. then calls subset_regions.sh which subsets the .gtf file by pulling out the feature of interest 
-
+```
 Description:
+
 1. Create .bed files for features of interst 
 2.Run subset_regions.sh BASH script wich subsets .gtf file into bed file pulling out feature of interesest with locations on chromosome (bed file has chr21 and start end)
 3.do_all.sh then uses the gene_type from newly created bed file and intersects the vcf file inputted at command line (contains information about whether a given genome has a SNP in a specific location) and bed file (contains info on genomic locations of SNPs and what gene_type they are in)
@@ -50,12 +51,13 @@ Description:
 5.uses this to calculate and give output of how many bp's each gene_type covers
 6.do_all.sh then feeds this info python script that creates a histogram out of this information 
 
+```
 output example for "processed psuedogenes" gene_type:
 
 processed_pseudogene.chr21.bed #contains chr1 start stop
 processed_pseudogene.chr21.bed.vcf #contains chrom, pos, info about SNP, and individual allele info from samples
 processed_pseudogene.chr21.bed.vcf.png #histogram of allele count vs frequency for SNPs within this gene_type
-
+```
 
 
 
