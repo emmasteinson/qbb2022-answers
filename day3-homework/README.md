@@ -22,6 +22,6 @@ join <(sort plink.eigenvec) <(sort integrated_call_samples.panel) > joined_file.
 
 --This command line code makes joined file from terminal with pca values and pop, superpop, gender. 
 
+code to generate plots uploaded as: exercise3_script.py
 
-
-#non african populations seperating from african. african american have mixed ancestry with european which is why you see that stratification 
+observation from superpop plot: non african populations seperating from african. african american have mixed ancestry with european which is why you see that stratification 
