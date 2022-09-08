@@ -52,6 +52,7 @@ Description:
 6.do_all.sh then feeds this info python script that creates a histogram out of this information 
 
 ```
+```
 output example for "processed psuedogenes" gene_type:
 
 processed_pseudogene.chr21.bed #contains chr1 start stop
