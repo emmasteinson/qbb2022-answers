@@ -37,7 +37,7 @@ for i in range(150000): #number of reads required. outer for loop is just saying
     randstart = np.random.randint(0, 999900) #represents where you are starting your reads from. random starting positions for reads
     for j in range(randstart, randstart + 100): #random read start and read end = start + 100
         genome[j] += 1 #turn zeros in array into 1's from random start position to random start position + 100 to represent they have been read once
-quit()
+
 
 #this is to make hitogram for 15x coverage
 x = np.array(genome) #make array of our reads for each position 
