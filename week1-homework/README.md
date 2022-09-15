@@ -11,29 +11,23 @@ Question 1.1: How many 100bp reads are needed to sequence a 1Mbp genome to 5x co
 
 Question 1.2: Write a program (in Python) to simulate sequencing 5x coverage of a 1Mbp genome with 100bp reads. Using this array, plot a histogram of the coverage. 
 
-```
-for i in range(50000): #size of 
-    randstart = np.random.randint(0, 999900) #set possible start and end positions for random reads
-    for j in range(randstart, randstart + 100): #random read start and read end = start + 100
-        genome[j] += 1 #turn zeros in array into 1's to represent they have been read once
-```
 Question 1.3: Using your output array of coverages from Q1.2, how much of the genome (e.g., how many base pairs) has not been sequenced (has 0x coverage)? How well does this match Poisson expectations?
 
 I get around 6834 base pairs with 0X coverage. Based on the poisson distribution I would expect that about .005% of the base pairs would have 0X coverage. 6834/1,000,000= .0068% that is close enough. 
 
 Question 1.4: Now repeat the analysis with 15X coverage. Compute the number of bases with 0x coverage, and evaluate how well it matches the Poisson expectation.
 
-I get around 7 base pairs with 0X coverage. This matches well the more reads you do the fewer base pairs with have 0 coverage
+I get around 7 base pairs with 0X coverage. This matches well the more reads you do the fewer base pairs with have 0X coverage
 
-Question 2: (created conda envornment called spafes) ~/Downloads/SPAdes-3.15.5-Darwin/bin/spades.py
 
 Question 2.1. How many contigs were produced? 
 ```
 grep -c '>' contigs.fasta
-4 contigs were produces 
 ```
+4 contigs were produces 
 
-Question 2.2: What is the total length of the contigs?
+
+Question 2.2: What is the total length of the contigs? 
 ```
 grep '>' contigs.fasta #this prints header lines which tells you the length of the contigs
 
@@ -42,35 +36,51 @@ grep '>' contigs.fasta #this prints header lines which tells you the length of t
 >NODE_3_length_41351_cov_20.528098
 >NODE_4_length_39426_cov_20.336388
 ```
+Total length is 234,467 bp 
 
 Question 2.3. What is the size of your largest contig?
 
-Using the output from 2.2 I can see that the length of the longest contig is 105,830
+Using the output from 2.2 I can see that the length of the longest contig is 105,830 base pairs.
 
 Question 2.4. What is the contig N50 size?
-To answer this I added up the length of the contigs to get total length and divided by two to find where N50 would be and determined which contig that point was contained in. 
 
-105,830 + 47,860 + 41,351 + 39,426 = 234,467/2 = 117,233 -> this point lies within the second contig which has a length of 47,860 bp.
+The N50 contig size is 47,860 bp. This is the length of the shortest contig for which longer and equal contigs cover atlesat 50% of genome (lined up contigs by length N50 is the contig that gets you to 50% coverage of the genome) 
+
+105,830 + 47,860 + 41,351 + 39,426 = 234,467/2 = 117,233 -> second largest contig (Node 2) gets you to this point. 
+
+
+Questions 3 Note: I did alignment with scaffolds.fasta instead of contigs.fasta.
 
 Question 3.1. What is the average identify of your assembly compared to the reference?
 
-Avg Identity = 99.98
+```
+less -S out.report
+```
+
+Avg Identity = 99.98 
 
 Question 3.2. What is the length of the longest alignment
+
+```
+show-coords out.delta
+```
 
 207,000 in assembly 
 
 207007 in reference 
 
-(length 1 is length is reference length 2 is length is assembly)
 
-Question 3.3. How many insertions and deletions are in the assembly? *** go over this 
+Question 3.3. How many insertions and deletions are in the assembly? 
 
-1 insertion for an average nubmer of 712 base pairs and 14 deletiions (got nubmer of deletions by subtracting 1 from the number of indels because indels can be insertions or deletions). ****what does GINDEL mean what is the actual number 
+```
+less -S out.report
+```
+Looked at insertions column said there were 2 for reference and 1 for qry. Insertions in the reference are really deletions in the assemby (two places with base pairs that are in the reference that are not found in the assembly). There is one insertion and two deletions in the assembly. **maybe change this wording
 
-Question 4.1. What is the position of the insertion in your assembly? Provide the corresponding position in the reference. **ask steph about this 
 
-The position is 26788-27497. there is a gap in our scaffold the first alignment goes from 1-26787 and then 27498-234497. Have to adjust by one because that number is still part of the alignment. 
+Question 4.1. What is the position of the insertion in your assembly? Provide the corresponding position in the reference. 
+
+The position is 26788-27497. Scaffold assembly jumps from 26787 to 27498.  
 
 
 Question 4.2. How long is the novel insertion? 
@@ -81,12 +91,11 @@ Question 4.4. What is the DNA sequence of the encoded message?
 ```
 samtools faidx ~/qbb2022-answers/week1-homework/asm/asm/scaffolds.fasta NODE_1_length_234497_cov_20.506978:26788-27499 > NODE_1_length_234497_cov_20.506978:26788-27499 #this pulls out inserted region
 
-```
 
-python dna-decode.py -d --input NODE_1_length_234497_cov_20.506978\:26788-27499
+python dna-decode.py -d --input NODE_1_length_234497_cov_20.506978\:26788-27499 #this runs 
 
 Message: Congratulations to the 2022 CMDB @ JHU class!  Keep on looking for little green aliens...
-
+```
 
 
 
@@ -110,3 +119,10 @@ q 2,3,4
 aligner tell you wehre alignment is need to look at coordinates in between where there isn't alignment 
 
 less contigs you have more resolution you have
+
+#fasta are scaffolds
+samtools faidx deals with fasta files summarizes informatin about all of the contigs. spits of re.fa.fai gives files iwht general information about fasta file 
+
+we did denovo assembly with spades. also have ref genome take denovo assembly and compare to reference genome suing MUMER. 
+
+contigs are first step-> scaffolds are contigs put together (qry). #record that i suced scaffolds instread of contigs

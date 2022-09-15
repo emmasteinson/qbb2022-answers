@@ -32,17 +32,18 @@ import matplotlib.pyplot as plt
 
 
 #this is for 15x coverage
-for i in range(150000): #number of reads required
-    randstart = np.random.randint(0, 999900) #set possible start and end positions for random reads
+# for i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] / range(10):
+for i in range(150000): #number of reads required. outer for loop is just saying do something 150,000 times
+    randstart = np.random.randint(0, 999900) #represents where you are starting your reads from. random starting positions for reads
     for j in range(randstart, randstart + 100): #random read start and read end = start + 100
-        genome[j] += 1 #turn zeros in array into 1's to represent they have been read once
-
+        genome[j] += 1 #turn zeros in array into 1's from random start position to random start position + 100 to represent they have been read once
+quit()
 
 #this is to make hitogram for 15x coverage
 x = np.array(genome) #make array of our reads for each position 
 fig, ax = plt.subplots()
 ax.plot(x, poisson.pmf(x, mu=15), 'bo', ms=8) 
-ax.hist(x, density =True)
+ax.hist(x, density =True) #density=true turns raw count into probability thing #another way to do the plot would be to have raw counts and convert poisoon probabilities by x 1000000
 ax.set_ylabel("frequency")
 ax.set_xlabel("coverage")
 plt.title("Frequency of Coverage")
