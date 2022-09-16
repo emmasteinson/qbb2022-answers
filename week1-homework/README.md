@@ -22,7 +22,14 @@ print(len(zeros[0]))
 
 I get around 6834 base pairs with 0X coverage. Based on the poisson distribution I would expect that about .005% of the base pairs would have 0X coverage. 6834/1,000,000= .0068% that is close enough. 
 
-Question 1.4: Now repeat the analysis with 15X coverage. Compute the number of bases with 0x coverage, and evaluate how well it matches the Poisson expectation. ***look at graph and do what I did for above question.
+Question 1.4: Now repeat the analysis with 15X coverage. Compute the number of bases with 0x coverage, and evaluate how well it matches the Poisson expectation.
+
+```
+v = np.array(genome)
+zeros = np.where(v==0)
+print(len(zeros[0]))
+
+```
 
 I get around 7 base pairs with 0X coverage. This matches well the more reads you do the fewer base pairs with have 0X coverage. Based on the poisson distribution I would expect very close to 0% to have 0X coverage and 7/1,000,000 is very close to 0%.
 
