@@ -89,7 +89,9 @@ Question 3.3. How many insertions and deletions are in the assembly?
 ```
 less -S out.report
 ```
-Looked at insertions column said there were 2 for reference and 1 for qry. Insertions in the reference are really deletions in the assemby (two places with base pairs that are in the reference that are not found in the assembly). There is one insertion and two deletions in the assembly. **maybe change this wording
+
+There is one insertion and two deletions in the assembly. 
+I looked at the insertions column which said there were 2 for reference and 1 for qry. Insertions in the reference are really deletions in the assemby (two places with base pairs that are in the reference that are not found in the assembly).
 
 
 Question 4.1. What is the position of the insertion in your assembly? Provide the corresponding position in the reference. 
@@ -114,33 +116,3 @@ python dna-decode.py -d --input NODE_1_length_234497_cov_20.506978\:26788-27499 
 
 Message: Congratulations to the 2022 CMDB @ JHU class!  Keep on looking for little green aliens...
 ```
-
-
-
-
-
-
-Notes: 
-care about coverage over 1M bp genome. effectively throwing darts at board (random number generator) simulated start of read. we know reads are 100 bases long. first reads starts as all zeros (0 signifies no reads yet). get a read turns into 1's. after throwing enough darts get new vector with coverage of what we have at each position. just keeping track of what coverage will be. this will give 1 mil points want to turn into histogram. 
-
-logical process is initilalize to zeros 
-for loop for number of reads we want throw dart (need random number)
-increment next 100 slots
-
-for(number reads)
-pick random nubmer
-for(100)
-increment cov[pos] = cov[pos] + 1
-
-q 2,3,4
-
-aligner tell you wehre alignment is need to look at coordinates in between where there isn't alignment 
-
-less contigs you have more resolution you have
-
-#fasta are scaffolds
-samtools faidx deals with fasta files summarizes informatin about all of the contigs. spits of re.fa.fai gives files iwht general information about fasta file 
-
-we did denovo assembly with spades. also have ref genome take denovo assembly and compare to reference genome suing MUMER. 
-
-contigs are first step-> scaffolds are contigs put together (qry). #record that i suced scaffolds instread of contigs
