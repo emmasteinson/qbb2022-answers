@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 
 
-#this is for 5x coverage
+#this is to simulate sequencing 5x coverage
 #for i in range(50000): #number of reads required
     #randstart = np.random.randint(0, 999900) #set possible start and end positions for random reads
     #for j in range(randstart, randstart + 100): #random read start and read end = start + 100
@@ -23,7 +23,7 @@ import matplotlib.pyplot as plt
 #this is to make hitogram for 5x coverage
 #x = np.array(genome) #make array of our reads for each position 
 #fig, ax = plt.subplots()
-#ax.plot(x, poisson.pmf(x, mu=5), 'bo', ms=8) 
+#ax.plot(x, poisson.pmf(x, mu=5), 'bo', ms=8) #this overlays poisson distribution
 #ax.hist(x, density =True)
 #ax.set_ylabel("frequency")
 #ax.set_xlabel("coverage")
@@ -31,10 +31,9 @@ import matplotlib.pyplot as plt
 #plt.savefig("5xhist.png")
 
 
-#this is for 15x coverage
-# for i in [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] / range(10):
+#this is to simulate sequencing 15x coverage
 for i in range(150000): #number of reads required. outer for loop is just saying do something 150,000 times
-    randstart = np.random.randint(0, 999900) #represents where you are starting your reads from. random starting positions for reads
+    randstart = np.random.randint(0, 999900) #represents where you are starting your reads from. generates random starting positions for reads
     for j in range(randstart, randstart + 100): #random read start and read end = start + 100
         genome[j] += 1 #turn zeros in array into 1's from random start position to random start position + 100 to represent they have been read once
 

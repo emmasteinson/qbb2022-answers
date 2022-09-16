@@ -13,11 +13,18 @@ Question 1.2: Write a program (in Python) to simulate sequencing 5x coverage of 
 
 Question 1.3: Using your output array of coverages from Q1.2, how much of the genome (e.g., how many base pairs) has not been sequenced (has 0x coverage)? How well does this match Poisson expectations?
 
+```
+v = np.array(genome)
+zeros = np.where(v==0)
+print(len(zeros[0]))
+
+```
+
 I get around 6834 base pairs with 0X coverage. Based on the poisson distribution I would expect that about .005% of the base pairs would have 0X coverage. 6834/1,000,000= .0068% that is close enough. 
 
-Question 1.4: Now repeat the analysis with 15X coverage. Compute the number of bases with 0x coverage, and evaluate how well it matches the Poisson expectation.
+Question 1.4: Now repeat the analysis with 15X coverage. Compute the number of bases with 0x coverage, and evaluate how well it matches the Poisson expectation. ***look at graph and do what I did for above question.
 
-I get around 7 base pairs with 0X coverage. This matches well the more reads you do the fewer base pairs with have 0X coverage
+I get around 7 base pairs with 0X coverage. This matches well the more reads you do the fewer base pairs with have 0X coverage. Based on the poisson distribution I would expect very close to 0% to have 0X coverage and 7/1,000,000 is very close to 0%.
 
 
 Question 2.1. How many contigs were produced? 
@@ -79,6 +86,10 @@ Looked at insertions column said there were 2 for reference and 1 for qry. Inser
 
 
 Question 4.1. What is the position of the insertion in your assembly? Provide the corresponding position in the reference. 
+
+```
+show-coords out.delta
+```
 
 The position is 26788-27497. Scaffold assembly jumps from 26787 to 27498.  
 
