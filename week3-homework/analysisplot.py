@@ -99,6 +99,7 @@ axes[1,0].set_title("Allele Frequency")
 axes[1,1].bar(list_set, barheights)
 axes[1,1].set_xlabel("annotation")
 axes[1,1].set_ylabel("number of alleles")
+axes[1,1].set_yscale("log")
 plt.xticks(fontsize = 6, rotation = 90)
 plt.title("Predicted Variant Affects")
 
