@@ -69,9 +69,9 @@ for line in parsed: #look in every line in vcf
 #print(quality)
 
 
-# #this puts all the plots into one figure with subpanels **uncomment
+# #this puts all the plots into one figure with subpanels
 fig, axes = plt.subplots(ncols=2, nrows=2)
-plt.tight_layout(pad=0.4, w_pad=0.5, h_pad=1.3)
+
 
 # read depth plot
 axes[0,0].hist(read_depth)
@@ -102,6 +102,8 @@ axes[1,1].set_ylabel("number of alleles")
 plt.xticks(fontsize = 6, rotation = 90)
 plt.title("Predicted Variant Affects")
 
+
+plt.tight_layout()
 
 plt.autoscale()
 fig.savefig("plots.png")
