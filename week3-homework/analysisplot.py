@@ -42,7 +42,11 @@ for line in parsed: #look in every line in vcf
     Ann = info["ANN"] #pull out value for key ANN. remember info is dictionary
     ann_list = Ann.split("|") #ann is a string need to split along |
     first_annotation = ann_list[1] #pull out first annotation
+    if first_annotation == "":
+        annotation.append("no_annotation")
+        continue
     annotation.append(first_annotation) #add first annotation to list
+#print(annotation)
 
 barplotitem = []
 barheights = []
@@ -66,7 +70,6 @@ for line in parsed: #look in every line in vcf
         if gq == ".": #skip if dp is a .
             continue
         quality.append(float(gq))
-#print(quality)
 
 
 # #this puts all the plots into one figure with subpanels
