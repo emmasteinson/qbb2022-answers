@@ -8,7 +8,7 @@ Step 4:
 plink --vcf genotypes.vcf --assoc --pheno CB1908_IC50.txt --allow-no-sex --covar plink.eigenvec --linear --out gwasCB1908
 plink --vcf genotypes.vcf --assoc --pheno GS451_IC50.txt --allow-no-sex --covar plink.eigenvec --linear --out gwasGS451
 
-covariates take out confounding structures (like population) batch correction. only want add liine everything else thats not covariate effect
+
 
 Step 5:
 Top SNP for CB1908: rs10876043 located on chromosome 12 at position 49190411. TUBA1A is a potential causal gene in the region (~chr12:49184795-49189080). This gene is one of three alpha-tubulin genes in a cluster on chromosome 12. 
