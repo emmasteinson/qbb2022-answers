@@ -16,15 +16,17 @@ fig, ax = plt.subplots(ncols = 1, nrows = 4 )
 
 ax[0].fill_between(sox2['X'], sox2['Y'])
 ax[0].set_ylabel("Sox2")
-
+ax[0].xaxis.set_visible(False)
 
 plt.xticks([])
 ax[1].fill_between(klf4['X'], klf4['Y'])
 ax[1].set_ylabel("Klf4")
+ax[1].xaxis.set_visible(False)
 
 
 ax[2].fill_between(h3k27acD0['X'], h3k27acD0['Y'])
 ax[2].set_ylabel("H3k27acD0")
+ax[2].xaxis.set_visible(False)
 
 
 
@@ -34,4 +36,4 @@ ax[3].set_ylabel("H3k27acD2")
 plt.xticks([])
 plt.tight_layout()
 plt.show()
-plt.savefig("CHIP.png")
+fig.savefig("finalCHIP.png")
