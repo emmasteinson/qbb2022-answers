@@ -78,3 +78,6 @@ tomtom memechip_out/combined.meme motif_databases/MOUSE/HOCOMOCOv11_full_MOUSE_m
 grep KLF4 tomtom.tsv > tomtomklf4.tsv
 grep SOX2 tomtom.tsv > tomtomsox2.tsv
 ```
+
+Submission:
+intersecting peaks file = D2_Sox2_peaks.bed
