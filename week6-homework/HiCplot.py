@@ -45,7 +45,7 @@ def filter_data(data1):
     #print(data1['score'][0][0])
 
     lendata = len(data1['score'])
-    mat1 = numpy.zeros((end_bin - start_bin, end_bin - start_bin))
+    mat1 = numpy.zeros((end_bin - start_bin +1, end_bin - start_bin+1))
     #print(mat1)
     # print(data1['score'][0][0])
 
@@ -108,5 +108,5 @@ ax[2].imshow(submat, cmap = "magma")
 ax[2].set_title("subtraction matrix")
 
 plt.tight_layout()
-fig.savefig("HiC-plots.png")
+fig.savefig("HiC-plotsfulls.png")
 plt.show()

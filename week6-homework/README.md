@@ -31,3 +31,8 @@ it didn't appear to have an affect based on our graphs
 3.What does the highlighted signal indicate?
 
 The highlighted signal represents interacting distant TADs (not adjacent TADs).
+
+Submission Notes:
+HiC-plots.png = subsampled 
+
+python HiCplot.py matrix/dCTCF_full.6400.matrix matrix/ddCTCF_full.6400.matrix matrix/6400_bins.bed output
