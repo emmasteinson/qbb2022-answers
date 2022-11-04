@@ -10,8 +10,7 @@ medaka_variant -i methylation.bam -f hg38.fa -r "chr14:100700000-100990000" -o c
 medaka_variant -i methylation.bam -f hg38.fa -r "chr15:23600000-25900000" -o chr15 -p chr15_phased.vcf
 medaka_variant -i methylation.bam -f hg38.fa -r "chr20:58800000-58912000" -o chr20 -p chr20_phased.vcf
 ```
-not sure if my 14 worked i might have forgotten to change to 14 
-*need to run 20
+
 
 Part Two: Mark reads with the correct haplotype (mark with matenal and paternal haplotype)
 ```
