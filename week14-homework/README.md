@@ -34,7 +34,7 @@ bwa mem -t 4 -o SRR492193.sam ../assembly.fasta SRR492193_1.fastq SRR492193_2.fa
 bwa mem -t 4 -o SRR492194.sam ../assembly.fasta SRR492194_1.fastq SRR492194_2.fastq
 bwa mem -t 4 -o SRR492197.sam ../assembly.fasta SRR492197_1.fastq SRR492197_2.fastq
 `
-`
+
 sort the bam files
 `
 samtools sort -o SRR492183.bam SRR492183.sam
@@ -80,7 +80,7 @@ samtools faidx bin.4.fa
 samtools faidx bin.5.fa
 samtools faidx bin.6.fa
 `
-`
+`s
 cut -f 2 bin.1.fa.fai | paste -sd+ - | bc  2693493
 cut -f 2 bin.2.fa.fai | paste -sd+ - | bc  2257331
 cut -f 2 bin.3.fa.fai | paste -sd+ - | bc  1656034
