@@ -65,7 +65,9 @@ grep ">" bin.5.fa | wc -l     6
 grep ">" bin.6.fa | wc -l     13
 `
 how many contigs in original assembly =4103
-grep ">" assembly.fasta | wc -l    
+`
+grep ">" assembly.fasta | wc -l  
+`  
 
 194/4103 = 5%. We could confidently identify 5% of total number of contigs. 
 
@@ -80,7 +82,7 @@ samtools faidx bin.4.fa
 samtools faidx bin.5.fa
 samtools faidx bin.6.fa
 `
-`s
+`
 cut -f 2 bin.1.fa.fai | paste -sd+ - | bc  2693493
 cut -f 2 bin.2.fa.fai | paste -sd+ - | bc  2257331
 cut -f 2 bin.3.fa.fai | paste -sd+ - | bc  1656034
@@ -88,7 +90,9 @@ cut -f 2 bin.4.fa.fai | paste -sd+ - | bc  1224069
 cut -f 2 bin.5.fa.fai | paste -sd+ - | bc  2862852
 cut -f 2 bin.6.fa.fai | paste -sd+ - | bc  2483660
 `
+`
 Normally around 5 million base pairs so we assembled about half the genome for each bacteria. That seems about right. 
+`
 
 
 Question 3D: 
