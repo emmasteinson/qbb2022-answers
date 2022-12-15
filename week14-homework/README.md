@@ -46,6 +46,8 @@ samtools sort -o SRR492193.bam SRR492193.sam
 samtools sort -o SRR492194.bam SRR492194.sam
 samtools sort -o SRR492197.bam SRR492197.sam
 `
+
+
 `
 jgi_summarize_bam_contig_depths --outputDepth depth.txt *.bam
 metabat2 -i ../assembly.fasta -a depth.txt -o bins_dir/bin
