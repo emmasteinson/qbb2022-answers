@@ -23,7 +23,8 @@ Question 2: We could use the amount of overlap and sequence similarity. Comparin
 
 `
 bwa index assembly.fasta
-
+`
+`
 bwa mem -t 4 -o SRR492183.sam ../assembly.fasta SRR492183_1.fastq SRR492183_2.fastq
 bwa mem -t 4 -o SRR492186.sam ../assembly.fasta SRR492186_1.fastq SRR492186_2.fastq
 bwa mem -t 4 -o SRR492188.sam ../assembly.fasta SRR492188_1.fastq SRR492188_2.fastq
@@ -32,6 +33,7 @@ bwa mem -t 4 -o SRR492190.sam ../assembly.fasta SRR492190_2.fastq SRR492190_2.fa
 bwa mem -t 4 -o SRR492193.sam ../assembly.fasta SRR492193_1.fastq SRR492193_2.fastq
 bwa mem -t 4 -o SRR492194.sam ../assembly.fasta SRR492194_1.fastq SRR492194_2.fastq
 bwa mem -t 4 -o SRR492197.sam ../assembly.fasta SRR492197_1.fastq SRR492197_2.fastq
+`
 `
 sort the bam files
 `
@@ -43,7 +45,8 @@ samtools sort -o SRR492190.bam SRR492190.sam
 samtools sort -o SRR492193.bam SRR492193.sam
 samtools sort -o SRR492194.bam SRR492194.sam
 samtools sort -o SRR492197.bam SRR492197.sam
-
+`
+`
 jgi_summarize_bam_contig_depths --outputDepth depth.txt *.bam
 metabat2 -i ../assembly.fasta -a depth.txt -o bins_dir/bin
 `
@@ -53,14 +56,14 @@ Question3A:
 Question 3B: 
 
 how many conntigs in our bins =194 total
-
+`
 grep ">" bin.1.fa | wc -l     53
 grep ">" bin.2.fa | wc -l     78
 grep ">" bin.3.fa | wc -l     8 
 grep ">" bin.4.fa | wc -l     36    
 grep ">" bin.5.fa | wc -l     6
 grep ">" bin.6.fa | wc -l     13
-
+`
 how many contigs in original assembly =4103
 grep ">" assembly.fasta | wc -l    
 
@@ -76,7 +79,8 @@ samtools faidx bin.3.fa
 samtools faidx bin.4.fa
 samtools faidx bin.5.fa
 samtools faidx bin.6.fa
-
+`
+`
 cut -f 2 bin.1.fa.fai | paste -sd+ - | bc  2693493
 cut -f 2 bin.2.fa.fai | paste -sd+ - | bc  2257331
 cut -f 2 bin.3.fa.fai | paste -sd+ - | bc  1656034
